@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crop Yield Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/index.css">
+    
+    <script>
+
+    function form_handler(event) {
+        event.preventDefault();
+    }
+    function send_data()
+    {
+        document.querySelector('form').addEventListener("submit",form_handler);
+
+        var fd=new FormData(document.querySelector('form'));
+
+        var xhr= new XMLHttpRequest({mozSystem: true});
+
+       console.log(34);
+        xhr.open('POST','/yield',true);
+
+        xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+            if(xhr.readyState == XMLHttpRequest.DONE){
+
+                document.getElementById('prediction').innerHTML="Prediction:"+xhr.responseText + " crop—per unit of land area";
+
+            }
+        };
+
+        xhr.onload= function(){};
+
+        xhr.send(fd);
+    }
+    </script>
+    
+  </head>
+
+  <body style="background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,67,1) 35%, rgba(0,212,255,1) 100%);">
+    <h1 style="text-align: center;">Crop Yield Prediction and Recommendation system</h1>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><img src="../static/logo.png" alt="..." height="60px" width="100px"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="yield">Crop Yield Predictor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reccom">Crop Recommender</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container1">
+        <h1>About Crop Yield Predictor</h1>
+        <p>We are a group of students who are passionate about using data and technology to address real-world problems.</p>
+        <p>Our team includes students from diverse backgrounds, such as computer science, statistics, and environmental studies.</p>
+        <p>We recognized the need for a tool that could help farmers and agricultural professionals make more informed decisions about their crops.</p>
+        <h3>Our Mission</h3>
+        <p>We recognized the need for a tool that could help farmers and agricultural professionals make more informed decisions about their crops. That's why we created Crop Yield Predictor, a platform that uses data analysis and machine learning to predict crop yields based on factors like area, state, year, and rainfall.</p>
+        <h3>Advantages of Our Website</h3>
+        <ul>
+        <li>Our predictions can help farmers optimize their crop production and minimize losses due to unfavorable weather or other environmental factors.</li>
+        <li>By using Crop Yield Predictor, farmers can save time and resources that would otherwise be spent on trial and error methods.</li>
+        <li>Our website is user-friendly and easy to navigate, making it accessible to a wide range of users.</li>
+        <li>We use the latest data analysis techniques combined with deep knowledge of the agricultural industry, making our predictions more accurate and reliable.</li>
+        <li>We consult with experts in the field to ensure that our predictions are up-to-date and in line with industry standards.</li>
+        <li>We're committed to using data and technology to create positive change in the agricultural industry, and our website is just one example of our dedication to this mission.</li>
+        </ul>
+      </div>
+
+      <div>
+        <form class="form" method="post" action="">
+            <label for="area">Area:</label>
+            <input type="number" step=any id="area" name="area" required><br><br>
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required><br><br>
+            <label for="rainfall">Rainfall:</label>
+            <input type="number" step=any id="rainfall" name="rainfall" required><br><br>
+            <label for="select_state">State:</label>
+
+            <select id="select_state" name="select_state" >
+                {% for state in states %}
+                <option value="{{state}}">{{state}}</option>
+                {% endfor %}
+
+            </select>
+<br><br>
+            <button class="btn form-control" onclick="send_data()">Predict</button>
+        </form>
+
+
+          <br>
+          <div class="row">
+              <div class="col-12" style="text-align: center">
+                <h4 style="background-color: white;" class="container1"><span id="prediction" style="color:black "></span></h4>
+             </div>
+          </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

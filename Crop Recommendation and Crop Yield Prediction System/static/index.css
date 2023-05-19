@@ -1,0 +1,78 @@
+
+
+.nav-link.active:hover,.nav-link:hover{
+    color: blue;
+    transition: 0.1s ease-in-out;
+    border-bottom: 1px solid blue;
+    border-radius: 30%;
+}
+
+/* .navbar{
+    background-color: #73f297 !important; */
+/* } */
+
+.container1{
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+body {
+    background-color: #f2f2f2;
+    }
+
+    /* Style the header */
+    h1 {
+    text-align: center;
+    font-size: 36px;
+    }
+
+    /* Style the form container */
+    form {
+    
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style the form labels */
+    label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+    }
+
+    /* Style the form inputs */
+    input, select {
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    }
+
+    /* Style the form submit button */
+    input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    /* Change the submit button background color on hover */
+    input[type="submit"]:hover {
+    background-color: #3e8e41;
+    }
+
+   
