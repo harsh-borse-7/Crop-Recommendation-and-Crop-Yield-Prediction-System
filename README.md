@@ -3,7 +3,7 @@
 This repository contains a machine learning system for accurately predicting crop yields and recommending the best crops based on environmental factors and historical data. The goal is to enhance agricultural productivity, resource management, and sustainability, while ensuring food security.
 
 Introduction
-The Crop Recommendation and Crop Yield Prediction System aims to address the following objectives:
+The Crop Recommendation and Crop Yield Prediction System aims to address the following objectives: 
 
 - Accurately forecast crop yields in a given area.
 - Inform decision-making for farmers and policymakers regarding planting, harvesting, and distribution.
